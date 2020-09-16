@@ -25,6 +25,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -33,9 +36,9 @@ dependencies {
     api 'androidx.appcompat:appcompat:1.0.0'
     api 'androidx.recyclerview:recyclerview:1.0.0'
     api 'com.google.android.material:material:1.0.0'
-    implementation project(':blelibrary')
-    implementation project(':gaialibrary')
-    implementation project(':vmupgradelibrary')
+    implementation project(':lib_ble')
+    implementation project(':lib_gaia')
+    implementation project(':lib_vm_upgrade')
 }
 
 def getVersion() {

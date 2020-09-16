@@ -2,4 +2,4 @@
  * Copyright 2017 Qualcomm Technologies International, Ltd.                                       *
  **************************************************************************************************/
 
-include ':app', ':gaialibrary', ':vmupgradelibrary', ':blelibrary'
+include ':app', ':lib_gaia', ':lib_vm_upgrade', ':lib_ble'
