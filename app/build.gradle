@@ -6,15 +6,15 @@ apply plugin: 'com.android.application'
 
 //noinspection GroovyMissingReturnStatement
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     def version = getVersion()
     
     defaultConfig {
-        applicationId 'com.qualcomm.qti.gaiacontrol'
+        applicationId 'cn.qualcomm.gaia'
         minSdkVersion 23
-        targetSdkVersion 25
+        targetSdkVersion 30
         versionCode getVersionCode(version)
         versionName getVersionName(version)
     }
@@ -32,10 +32,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    api 'androidx.appcompat:appcompat:1.0.0'
-    api 'androidx.recyclerview:recyclerview:1.0.0'
-    api 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.13'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation project(':lib_ble')
     implementation project(':lib_gaia')
     implementation project(':lib_vm_upgrade')
@@ -45,8 +46,8 @@ def getVersion() {
     def versionPropsFile = file('version.properties')
 
     if (versionPropsFile.canRead()) {
-        def Properties versionProps = new Properties()
-        def FileInputStream file = new FileInputStream(versionPropsFile)
+        Properties versionProps = new Properties()
+        FileInputStream file = new FileInputStream(versionPropsFile)
         versionProps.load(file)
         file.close()
         return versionProps
@@ -65,7 +66,7 @@ def getVersion() {
  *
  * @return An integer get from the properties.
  */
-static def int getVersionCode(Properties version) {
+static int getVersionCode(Properties version) {
     return version['VERSION_CODE'].toInteger()
 }
 
@@ -85,7 +86,7 @@ static def int getVersionCode(Properties version) {
  *
  * @return A String built using the format "a.b.c build d" from the version numbers.
  */
-static def String getVersionName(Properties version) {
+static String getVersionName(Properties version) {
     return version['VERSION_MAJOR'] + "." + version['VERSION_MINOR'] + "." + version['VERSION_REVISION'] +
-            " #" + version['VERSION_CODE'];
+            " #" + version['VERSION_CODE']
 }

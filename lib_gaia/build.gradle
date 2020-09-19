@@ -6,14 +6,14 @@ apply plugin: 'com.android.library'
 
 //noinspection GroovyMissingReturnStatement
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     def version = getVersion()
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 30
         versionCode getVersionCode(version)
         versionName getVersionName(version)
     }
@@ -27,17 +27,17 @@ android {
 }
 
 dependencies {
-    api 'androidx.appcompat:appcompat:1.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
+    api 'androidx.appcompat:appcompat:1.2.0'
 }
 
 def getVersion() {
     def versionPropsFile = file('version.properties')
 
     if (versionPropsFile.canRead()) {
-        def Properties versionProps = new Properties()
-        def FileInputStream file = new FileInputStream(versionPropsFile)
+        Properties versionProps = new Properties()
+        FileInputStream file = new FileInputStream(versionPropsFile)
         versionProps.load(file)
         file.close()
         return versionProps
@@ -63,12 +63,12 @@ def getVersion() {
  *
  * @return An integer built with the format abbbcccc from the version numbers.
  */
-static def int getVersionCode(Properties version) {
-    def int FACTOR = 1000
-    def int code = ((version['VERSION_MAJOR'].toInteger() * FACTOR)
+static int getVersionCode(Properties version) {
+    int FACTOR = 1000
+    int code = ((version['VERSION_MAJOR'].toInteger() * FACTOR)
             + version['VERSION_MINOR'].toInteger()) * FACTOR
     + version['VERSION_REVISION'].toInteger()
-    return code;
+    return code
 }
 
 /**
@@ -86,6 +86,6 @@ static def int getVersionCode(Properties version) {
  *
  * @return A String built with the format "a.b.c" from the version numbers.
  */
-static def String getVersionName(Properties version) {
-    return version['VERSION_MAJOR'] + "." + version['VERSION_MINOR'] + "." + version['VERSION_REVISION'];
+static String getVersionName(Properties version) {
+    return version['VERSION_MAJOR'] + "." + version['VERSION_MINOR'] + "." + version['VERSION_REVISION']
 }

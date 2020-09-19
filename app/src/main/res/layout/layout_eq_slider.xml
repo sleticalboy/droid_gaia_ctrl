@@ -3,7 +3,7 @@
   ~ Copyright 2017 Qualcomm Technologies International, Ltd.                                      ~
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<com.qualcomm.qti.gaiacontrol.ui.SliderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.qualcomm.gaia.ui.SliderLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -60,4 +60,4 @@
         android:layout_height="wrap_content" />
 
 
-</com.qualcomm.qti.gaiacontrol.ui.SliderLayout>
+</cn.qualcomm.gaia.ui.SliderLayout>

@@ -2,7 +2,7 @@
   ~ Copyright 2017 Qualcomm Technologies International, Ltd.                                      ~
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<manifest package="com.qualcomm.qti.gaiacontrol"
+<manifest package="cn.qualcomm.gaia"
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools" >
 
